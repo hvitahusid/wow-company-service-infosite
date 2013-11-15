@@ -1,0 +1,331 @@
+@import 'nib'
+@import 'nib/gradients'
+
+global-reset()
+
+debug = false
+
+green = #aad2b4
+
+purple = #a00082
+purple2 = #7d0064
+
+blue = #96cde6
+yellow = #ffe600
+
+_width = 940px
+
+html
+    min-height: 100%
+
+body
+    font-family: "museo-slab", serif
+    font-weight: 100
+    color: white
+    font-size: 30px
+    height: 100%
+
+#content
+    overflow: hidden
+    width: 100%
+    min-width: _width
+
+section, .section
+    background: purple
+    background: linear-gradient(top, purple 10%, purple2 90%)
+    position: relative
+
+.wrapper
+    width: _width
+    margin: 0 auto
+    position: relative
+
+    if debug
+        border-left: 1px solid grey
+        border-right: 1px solid grey
+
+nav
+    _height = 44px
+    height: _height
+    absolute: top -1 * _height left 0
+    width: 100%
+
+    ul
+        background_color = yellow
+        font-family: 'museo-sans', Helvetica, Arial, sans-serif
+        display: block
+        position: relative
+        list-style: none
+        height: _height
+        text-align: justify
+        font-size: 0
+        .lt-ie9 &
+            font-size: 12px
+
+        &:before
+            content: ''
+            width: _width
+            height: _height
+            absolute: top 0 left -9999px
+            border-left: 9999px solid background_color
+            border-right: 9999px solid background_color
+
+        &:after
+            content: ""
+            width: 100%
+            display: inline-block
+            zoom: 1
+            *display: inline
+
+        li
+            height: _height
+            padding: 0
+            display: inline-block
+            vertical-align: top
+            zoom: 1
+            *display: inline
+            border-right: 30px solid background_color
+            border-left: 30px solid background_color
+            margin: 0 -30px
+
+
+            a, a:visited, a:active
+                position: relative
+                height: _height
+                padding: 0 30px
+                display: block
+                outline: 0
+                color: purple
+                text-transform: uppercase
+                text-decoration: none
+                font-size: 22px
+                line-height: _height
+                background: background_color
+                font-weight: 300
+
+            &.active
+                a
+                    margin-top: 8px
+                    background: green
+                    font-weight: 700
+
+                    &:before, &:after
+                        absolute: top -8px left 0
+                        content: ''
+                        display: block
+                        width: 0
+                        height: 0
+                        border-right: 17px solid black
+                        border-top: 8px solid background_color
+
+                    &:after
+                        left: auto
+                        right: 0
+                        border-right: none
+                        border-left: 17px solid black
+
+section.active nav
+    position: fixed
+    top: 0
+    left: 0
+
+section, .section
+    padding: 57px 0 44px 0
+
+    div.wrapper
+        h1
+            font-size:44px
+            line-height: 1.2
+
+            b
+                font-weight: 700
+                color: yellow
+
+        h2
+            font-weight: 100
+            font-size: 30px
+            line-height: 1.2
+            font-family: 'museo-sans', Helvetica, Arial, sans-serif
+            b
+                font-weight: 700
+
+        p.small
+            font-family: 'museo-sans', Helvetica, Arial, sans-serif
+            font-size: 12px
+            padding-top: 24px
+
+        .info-box
+            position:relative
+            background: green
+            padding: 20px 23px
+            font-weight: 300
+
+            p
+                font-size: 18px
+                color: purple
+                b
+                    font-weight: 700
+
+            input.text
+                background: white
+                border: 0
+                margin: 0
+                padding: 7px 10px
+                width: 261px - 10px
+                font-size: 14px
+                line-height: 18px
+
+
+            &:before
+                content: ''
+                width: 70px; height: 69px
+                image: '../img/point.png' @width @height
+                absolute: top 50% left -84px
+                margin-top: -(@height / 2)
+
+header.section
+    position: relative
+    padding: 0 0 44px 0
+    div.wrapper
+        padding: 50px 0 40px 0
+        position: relative
+
+        a.logo
+            display: block
+            width: 458px; height: 164px
+            image: '../img/logo.png' @width @height
+            margin: auto
+            position:relative
+
+        div.loford
+            width: 232px; height: 231px
+            image: '../img/loford.png' @width @height
+            absolute: right -5px top 278px
+
+        div.folk
+            position: relative
+            width: 712px; height: 571px
+            image: '../img/folk.png' @width @height
+            margin: -3px 0 -17px 20px
+
+        h1
+            text-align: center
+            padding-left:21px
+
+section.sky
+    background-image: url('../img/sky.jpg')
+    background-size:100%
+    background-position: 50% 0
+
+section.stundvisi
+    padding-bottom: 120px
+    div.wrapper
+        h1
+            padding-bottom: 38px
+
+        h2
+            padding-bottom: 44px
+
+        div.info-box
+            display: inline-block
+            p
+                padding-bottom: 12px
+
+        div.plane
+            width: 1405px; height: 567px
+            image: '../img/plane.png' @width @height
+            absolute: top -26px left 470px
+            z-index:0
+
+section.fastur-kostnadur
+    padding-bottom: 150px
+    div.wrapper
+        h1
+            font-size: 43px
+            letter-spacing: -1px
+            padding-bottom: 22px
+
+        div.table
+            width: 941px; height: 617px
+            image: '../img/table1.png' @width @height
+            margin-bottom: 54px
+
+section.laegra-verd
+    padding-bottom: 100px
+
+    div.wrapper
+        h2
+            font-size:28px
+            padding-top:26px
+            padding-bottom:12px
+
+        div.graph
+            width: 998px; height: 377px
+            image: '../img/graph1.png' @width @height
+            margin-bottom: 32px
+            margin-left: -58px
+
+section.wow-flug
+    padding-bottom: 0
+    div.wrapper
+        padding-bottom: 155px
+
+        h2
+            font-size: 28px
+            color: yellow
+            margin: 19px 0
+
+        div.model
+            width: 638px; height: 624px
+            image: '../img/model.png' @width @height
+            absolute: bottom 0 left -355px
+            z-index:0
+
+        div.quotes
+            width: 951px; height: 94px
+            image: '../img/quotes.png' @width @height
+            margin-top: 32px
+            margin-bottom: 32px
+            margin-left: -11px
+
+        div.indent
+            margin-left: 300px
+            margin-top: 50px
+            h2
+                color: white
+                b
+                    color: yellow
+
+            div.icons
+                width: 640px; height: 201px
+                image: '../img/icons.png' @width @height
+                margin-top: -30px
+                margin-bottom: 96px
+
+            div.info-box
+                clearfix()
+                width: 424px
+
+                p
+                    width: 296px
+                    float: left
+
+                input
+                    float:left
+                    width:108px
+
+        div.logo
+            width: 142px; height: 141px
+            image: '../img/small-logo.png' @width @height
+            absolute: bottom 43px right -131px
+            z-index:0
+
+::selection
+    background: yellow
+    color: white
+
+.yellow
+    color: yellow
+
+.blue
+    color: blue
