@@ -37,8 +37,10 @@ $(function() {
             if((scroll <= bottom || index === 3) && scroll >= top) {
                 $(this).addClass('active');
                 setHash('#' + $(this).attr('class').split(' ')[0]);
+                return false;
             } else {
                 $(this).removeClass('active');
+                return true;
             }
         });
         if(scroll < $('section:eq(0)').position().top - 44) {
@@ -46,18 +48,28 @@ $(function() {
         }
     });
 
-    $('input').on('keypress', function(e) {
+    $('.input input').on('keypress', function(e) {
         if(e.which === 13) {
-            $.ajax({
-                type: 'post',
-                url: 'sendmail.php',
-                data: {
-                    value: $(this).val()
-                },
-                success: function(data) {
-                    $(e.currentTarget).val('').blur();
-                }
-            });
+            $(this).parent().find('button').click();
         }
+    });
+
+    $('.input button').on('click', function() {
+        var input = $(this).parent().find('input').keypress();
+        $.ajax({
+            type: 'post',
+            url: 'sendmail.php',
+            data: {
+                value: $(input).val()
+            },
+            success: function(data) {
+                $(input).val('').blur();
+                var placeholder = $('input').attr('placeholder');
+                $('input').attr('placeholder', 'WOW! Takk fyrir ;D');
+                setTimeout(function() {
+                    $('input').attr('placeholder', placeholder);
+                }, 2000);
+            }
+        });
     });
 });

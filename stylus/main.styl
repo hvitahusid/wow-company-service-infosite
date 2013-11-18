@@ -166,15 +166,38 @@ section, .section
                 b
                     font-weight: 700
 
-            input.text
+            .input
+                _width = 261px
+                position: relative
+                width: _width
+                height: 32px
                 background: white
-                border: 0
-                margin: 0
-                padding: 7px 10px
-                width: 261px - 10px
-                font-size: 14px
-                line-height: 18px
 
+                input.text
+                    display: block
+                    position: absolute
+                    top: 0
+                    left: 0
+                    background: transparent
+                    border: 0
+                    margin: 0
+                    padding: 7px (10px + 32px) 7px 10px
+                    width: _width - 20px - 32px
+                    font-size: 14px
+                    line-height: 18px
+
+                button
+                    position: absolute
+                    right: 0
+                    top: 0
+                    cursor: pointer
+                    display: block
+                    border: 0
+                    width: 32px
+                    height: 100%
+                    background: transparent url('../img/return-icon.png') 100% 50% no-repeat
+                    &, &:active
+                        outline: 0
 
             &:before
                 content: ''
