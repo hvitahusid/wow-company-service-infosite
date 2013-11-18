@@ -64,7 +64,7 @@ $(function() {
             },
             success: function(data) {
                 $(input).val('').blur();
-                var placeholder = $('input').attr('placeholder');
+                var placeholder = $(input).attr('placeholder');
                 $('input').attr('placeholder', 'WOW! Takk fyrir ;D');
                 setTimeout(function() {
                     $('input').attr('placeholder', placeholder);
